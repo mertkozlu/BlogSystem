@@ -71,7 +71,7 @@ public class UserService {
         Comment comment = commentRepository.findById(userId).orElse(null);
         Post post = postRepository.findById(userId).orElse(null);
         if (Objects.nonNull(comment) || Objects.nonNull(post)) {
-            throw new BusinessException("hhh");
+            throw new BusinessException("User cannot be deleted while the user has posts and comments.");
         }
         this.userRepository.deleteById(userId);
     }
