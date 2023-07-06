@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class CommentService {
-    private final CommentRepository commentRepository;
 
+    private final CommentRepository commentRepository;
     private final ModelMapperService modelMapperService;
 
     public CommentService(CommentRepository commentRepository, ModelMapperService modelMapperService) {
@@ -79,7 +79,6 @@ public class CommentService {
         getAllCommentDto.setIsConfirmed(comment.getIsConfirmed());
 
         return getAllCommentDto;
-
 
     }
 

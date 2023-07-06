@@ -7,6 +7,7 @@ import java.util.List;
 
 @Data
 public class GetAllPostResponse extends BaseResponse {
+
     List<GetAllPostDto> getAllPostDto;
 
 }

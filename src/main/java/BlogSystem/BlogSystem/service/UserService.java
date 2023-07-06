@@ -20,10 +20,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
+
     private final UserRepository userRepository;
     private final CommentService commentService;
     private final PostService postService;
-
     private final ModelMapperService modelMapperService;
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;

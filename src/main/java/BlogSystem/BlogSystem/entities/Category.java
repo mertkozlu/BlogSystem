@@ -17,7 +17,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
     private Long categoryId;
+
     private String categoryName;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
 

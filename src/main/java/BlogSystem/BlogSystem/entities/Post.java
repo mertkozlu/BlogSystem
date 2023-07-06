@@ -19,16 +19,24 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
     private Long postId;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
+
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
+
     private String title;
+
     private String content;
+
     private Long viewCount;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
+
     private Boolean isPublished;
 }

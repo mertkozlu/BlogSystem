@@ -11,6 +11,7 @@ import java.util.List;
 
 @Data
 public class GetAllCommentResponse extends BaseResponse {
+
     List<GetAllCommentDto> getAllCommentDto;
 
 }

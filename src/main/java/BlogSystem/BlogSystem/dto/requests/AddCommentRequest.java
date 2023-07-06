@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class AddCommentRequest {
 
-
     private Long postId;
+
     private Long userId;
 
     private String comments;

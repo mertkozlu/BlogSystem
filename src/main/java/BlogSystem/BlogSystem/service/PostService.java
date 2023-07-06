@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 public class PostService {
 
     private final PostRepository postRepository;
-
     private final ModelMapperService modelMapperService;
     private final UserRepository userRepository;
 

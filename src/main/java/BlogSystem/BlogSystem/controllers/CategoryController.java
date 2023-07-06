@@ -13,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("categories")
 public class CategoryController {
+
     private final CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService){
@@ -33,6 +34,7 @@ public class CategoryController {
     public void deleteOneCategory(@PathVariable Long categoryId) {
         this.categoryService.deleteOneCategoryById(categoryId);
     }
+
     @PutMapping("{categoryId}")
     public Category updateOneUser(@PathVariable  Long categoryId, @RequestBody UpdateCategoryRequest updateCategoryRequest){
         return categoryService.updateOneCategory(categoryId, updateCategoryRequest);

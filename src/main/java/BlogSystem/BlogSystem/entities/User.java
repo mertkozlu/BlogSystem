@@ -18,11 +18,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long userId;
+
     private String userName;
+
     private String email;
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
+
     private boolean isActive = true;
+
+
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Post> posts;
 

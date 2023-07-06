@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
-
     private final ModelMapperService modelMapperService;
 
     public CategoryService(CategoryRepository categoryRepository, ModelMapperService modelMapperService) {

@@ -36,8 +36,9 @@ public class PostController {
     public void deleteOnePost(@PathVariable Long postId) {
         this.postService.deleteOnePostById(postId);
     }
+
     @PutMapping("{postId}")
-    public Post updateOnePost(@PathVariable  Long postId, @RequestBody UpdatePostRequest updatePostRequest){
+    public Post updateOnePost(@PathVariable Long postId, @RequestBody UpdatePostRequest updatePostRequest) {
         return postService.updateOnePost(postId, updatePostRequest);
 
     }
