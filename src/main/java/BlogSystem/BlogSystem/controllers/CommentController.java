@@ -1,12 +1,12 @@
-package patikaOdev.BlogSystem.controllers;
+package BlogSystem.BlogSystem.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import patikaOdev.BlogSystem.dto.requests.AddCommentRequest;
-import patikaOdev.BlogSystem.dto.requests.AddPostRequest;
-import patikaOdev.BlogSystem.dto.requests.UpdateCommentRequest;
-import patikaOdev.BlogSystem.dto.responses.GetAllCommentResponse;
-import patikaOdev.BlogSystem.entities.Comment;
-import patikaOdev.BlogSystem.service.CommentService;
+import BlogSystem.BlogSystem.dto.requests.AddCommentRequest;
+import BlogSystem.BlogSystem.dto.requests.AddPostRequest;
+import BlogSystem.BlogSystem.dto.requests.UpdateCommentRequest;
+import BlogSystem.BlogSystem.dto.responses.GetAllCommentResponse;
+import BlogSystem.BlogSystem.entities.Comment;
+import BlogSystem.BlogSystem.service.CommentService;
 
 import java.util.List;
 

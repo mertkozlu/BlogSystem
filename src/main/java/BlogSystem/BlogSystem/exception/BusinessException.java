@@ -1,4 +1,4 @@
-package patikaOdev.BlogSystem.exception;
+package BlogSystem.BlogSystem.exception;
 
 public class BusinessException extends RuntimeException{
     public BusinessException(String message) {

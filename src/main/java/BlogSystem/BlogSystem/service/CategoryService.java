@@ -1,19 +1,19 @@
-package patikaOdev.BlogSystem.service;
+package BlogSystem.BlogSystem.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import patikaOdev.BlogSystem.dataAccess.CategoryRepository;
-import patikaOdev.BlogSystem.dto.GetAllCategoryDto;
-import patikaOdev.BlogSystem.dto.GetAllCommentDto;
-import patikaOdev.BlogSystem.dto.GetAllUsersDto;
-import patikaOdev.BlogSystem.dto.requests.AddCategoryRequest;
-import patikaOdev.BlogSystem.dto.requests.UpdateCategoryRequest;
-import patikaOdev.BlogSystem.dto.responses.GetAllCategoryResponse;
-import patikaOdev.BlogSystem.dto.responses.GetAllCommentResponse;
-import patikaOdev.BlogSystem.entities.Category;
-import patikaOdev.BlogSystem.entities.Comment;
-import patikaOdev.BlogSystem.exception.BusinessException;
-import patikaOdev.BlogSystem.mapper.ModelMapperService;
+import BlogSystem.BlogSystem.dataAccess.CategoryRepository;
+import BlogSystem.BlogSystem.dto.GetAllCategoryDto;
+import BlogSystem.BlogSystem.dto.GetAllCommentDto;
+import BlogSystem.BlogSystem.dto.GetAllUsersDto;
+import BlogSystem.BlogSystem.dto.requests.AddCategoryRequest;
+import BlogSystem.BlogSystem.dto.requests.UpdateCategoryRequest;
+import BlogSystem.BlogSystem.dto.responses.GetAllCategoryResponse;
+import BlogSystem.BlogSystem.dto.responses.GetAllCommentResponse;
+import BlogSystem.BlogSystem.entities.Category;
+import BlogSystem.BlogSystem.entities.Comment;
+import BlogSystem.BlogSystem.exception.BusinessException;
+import BlogSystem.BlogSystem.mapper.ModelMapperService;
 
 import java.util.Date;
 import java.util.List;

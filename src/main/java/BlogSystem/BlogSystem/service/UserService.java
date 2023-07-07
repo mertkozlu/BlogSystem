@@ -1,19 +1,19 @@
-package patikaOdev.BlogSystem.service;
+package BlogSystem.BlogSystem.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import patikaOdev.BlogSystem.dataAccess.CommentRepository;
-import patikaOdev.BlogSystem.dataAccess.PostRepository;
-import patikaOdev.BlogSystem.dataAccess.UserRepository;
-import patikaOdev.BlogSystem.dto.GetAllUsersDto;
-import patikaOdev.BlogSystem.dto.requests.AddUserRequest;
-import patikaOdev.BlogSystem.dto.requests.UpdateUserRequest;
-import patikaOdev.BlogSystem.dto.responses.GetAllUserResponse;
-import patikaOdev.BlogSystem.entities.Comment;
-import patikaOdev.BlogSystem.entities.Post;
-import patikaOdev.BlogSystem.entities.User;
-import patikaOdev.BlogSystem.exception.BusinessException;
-import patikaOdev.BlogSystem.mapper.ModelMapperService;
+import BlogSystem.BlogSystem.dataAccess.CommentRepository;
+import BlogSystem.BlogSystem.dataAccess.PostRepository;
+import BlogSystem.BlogSystem.dataAccess.UserRepository;
+import BlogSystem.BlogSystem.dto.GetAllUsersDto;
+import BlogSystem.BlogSystem.dto.requests.AddUserRequest;
+import BlogSystem.BlogSystem.dto.requests.UpdateUserRequest;
+import BlogSystem.BlogSystem.dto.responses.GetAllUserResponse;
+import BlogSystem.BlogSystem.entities.Comment;
+import BlogSystem.BlogSystem.entities.Post;
+import BlogSystem.BlogSystem.entities.User;
+import BlogSystem.BlogSystem.exception.BusinessException;
+import BlogSystem.BlogSystem.mapper.ModelMapperService;
 
 import java.util.*;
 import java.util.stream.Collectors;

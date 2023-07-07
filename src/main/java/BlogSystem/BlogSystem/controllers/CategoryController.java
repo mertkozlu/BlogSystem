@@ -1,12 +1,12 @@
-package patikaOdev.BlogSystem.controllers;
+package BlogSystem.BlogSystem.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import patikaOdev.BlogSystem.dto.requests.AddCategoryRequest;
-import patikaOdev.BlogSystem.dto.requests.UpdateCategoryRequest;
-import patikaOdev.BlogSystem.dto.responses.GetAllCategoryResponse;
-import patikaOdev.BlogSystem.dto.responses.GetAllUserResponse;
-import patikaOdev.BlogSystem.entities.Category;
-import patikaOdev.BlogSystem.service.CategoryService;
+import BlogSystem.BlogSystem.dto.requests.AddCategoryRequest;
+import BlogSystem.BlogSystem.dto.requests.UpdateCategoryRequest;
+import BlogSystem.BlogSystem.dto.responses.GetAllCategoryResponse;
+import BlogSystem.BlogSystem.dto.responses.GetAllUserResponse;
+import BlogSystem.BlogSystem.entities.Category;
+import BlogSystem.BlogSystem.service.CategoryService;
 
 import java.util.List;
 

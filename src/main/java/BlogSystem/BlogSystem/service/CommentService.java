@@ -1,15 +1,15 @@
-package patikaOdev.BlogSystem.service;
+package BlogSystem.BlogSystem.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import patikaOdev.BlogSystem.dataAccess.CommentRepository;
-import patikaOdev.BlogSystem.dto.GetAllCommentDto;
-import patikaOdev.BlogSystem.dto.requests.AddCommentRequest;
-import patikaOdev.BlogSystem.dto.requests.UpdateCommentRequest;
-import patikaOdev.BlogSystem.dto.responses.GetAllCommentResponse;
-import patikaOdev.BlogSystem.entities.Comment;
-import patikaOdev.BlogSystem.exception.BusinessException;
-import patikaOdev.BlogSystem.mapper.ModelMapperService;
+import BlogSystem.BlogSystem.dataAccess.CommentRepository;
+import BlogSystem.BlogSystem.dto.GetAllCommentDto;
+import BlogSystem.BlogSystem.dto.requests.AddCommentRequest;
+import BlogSystem.BlogSystem.dto.requests.UpdateCommentRequest;
+import BlogSystem.BlogSystem.dto.responses.GetAllCommentResponse;
+import BlogSystem.BlogSystem.entities.Comment;
+import BlogSystem.BlogSystem.exception.BusinessException;
+import BlogSystem.BlogSystem.mapper.ModelMapperService;
 
 import java.util.Date;
 import java.util.List;

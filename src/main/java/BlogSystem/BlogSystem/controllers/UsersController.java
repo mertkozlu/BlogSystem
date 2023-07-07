@@ -1,11 +1,11 @@
-package patikaOdev.BlogSystem.controllers;
+package BlogSystem.BlogSystem.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import patikaOdev.BlogSystem.dto.requests.AddUserRequest;
-import patikaOdev.BlogSystem.dto.requests.UpdateUserRequest;
-import patikaOdev.BlogSystem.dto.responses.GetAllUserResponse;
-import patikaOdev.BlogSystem.entities.User;
-import patikaOdev.BlogSystem.service.UserService;
+import BlogSystem.BlogSystem.dto.requests.AddUserRequest;
+import BlogSystem.BlogSystem.dto.requests.UpdateUserRequest;
+import BlogSystem.BlogSystem.dto.responses.GetAllUserResponse;
+import BlogSystem.BlogSystem.entities.User;
+import BlogSystem.BlogSystem.service.UserService;
 
 import java.util.List;
 

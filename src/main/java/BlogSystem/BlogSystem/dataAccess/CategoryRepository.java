@@ -1,7 +1,7 @@
-package patikaOdev.BlogSystem.dataAccess;
+package BlogSystem.BlogSystem.dataAccess;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import patikaOdev.BlogSystem.entities.Category;
+import BlogSystem.BlogSystem.entities.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 }

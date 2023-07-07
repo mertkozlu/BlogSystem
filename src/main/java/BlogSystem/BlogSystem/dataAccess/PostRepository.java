@@ -1,7 +1,7 @@
-package patikaOdev.BlogSystem.dataAccess;
+package BlogSystem.BlogSystem.dataAccess;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import patikaOdev.BlogSystem.entities.Post;
+import BlogSystem.BlogSystem.entities.Post;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 }

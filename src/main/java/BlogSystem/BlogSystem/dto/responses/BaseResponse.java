@@ -1,4 +1,4 @@
-package patikaOdev.BlogSystem.dto.responses;
+package BlogSystem.BlogSystem.dto.responses;
 
 import lombok.Data;
 

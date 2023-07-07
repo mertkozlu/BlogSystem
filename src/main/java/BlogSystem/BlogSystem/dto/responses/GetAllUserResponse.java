@@ -1,7 +1,7 @@
-package patikaOdev.BlogSystem.dto.responses;
+package BlogSystem.BlogSystem.dto.responses;
 
 import lombok.Data;
-import patikaOdev.BlogSystem.dto.GetAllUsersDto;
+import BlogSystem.BlogSystem.dto.GetAllUsersDto;
 
 import java.util.List;
 

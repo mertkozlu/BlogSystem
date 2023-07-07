@@ -1,4 +1,4 @@
-package patikaOdev.BlogSystem.entities;
+package BlogSystem.BlogSystem.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package patikaOdev.BlogSystem.dto.requests;
+package BlogSystem.BlogSystem.dto.requests;
 
 import lombok.Data;
 

@@ -1,8 +1,8 @@
-package patikaOdev.BlogSystem.dto.responses;
+package BlogSystem.BlogSystem.dto.responses;
 
 import lombok.Data;
-import patikaOdev.BlogSystem.dto.GetAllCategoryDto;
-import patikaOdev.BlogSystem.dto.GetAllCommentDto;
+import BlogSystem.BlogSystem.dto.GetAllCategoryDto;
+import BlogSystem.BlogSystem.dto.GetAllCommentDto;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;

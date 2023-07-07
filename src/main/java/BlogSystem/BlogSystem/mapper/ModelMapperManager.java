@@ -1,4 +1,4 @@
-package patikaOdev.BlogSystem.mapper;
+package BlogSystem.BlogSystem.mapper;
 
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
