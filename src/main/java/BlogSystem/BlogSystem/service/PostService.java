@@ -1,19 +1,16 @@
 package BlogSystem.BlogSystem.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import BlogSystem.BlogSystem.dataAccess.PostRepository;
 import BlogSystem.BlogSystem.dataAccess.UserRepository;
 import BlogSystem.BlogSystem.dto.GetAllPostDto;
-import BlogSystem.BlogSystem.dto.GetAllUsersDto;
 import BlogSystem.BlogSystem.dto.requests.AddPostRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdatePostRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllPostResponse;
-import BlogSystem.BlogSystem.dto.responses.GetAllUserResponse;
 import BlogSystem.BlogSystem.entities.Post;
-import BlogSystem.BlogSystem.entities.User;
 import BlogSystem.BlogSystem.exception.BusinessException;
 import BlogSystem.BlogSystem.mapper.ModelMapperService;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -52,7 +49,7 @@ public class PostService {
     }
 
     public Post saveOnePost(AddPostRequest newPost) {
-        Post post=this.modelMapperService.forRequest().map(newPost, Post.class);
+        Post post = this.modelMapperService.forRequest().map(newPost, Post.class);
 
         return postRepository.save(post);
     }
@@ -60,9 +57,10 @@ public class PostService {
     public void deleteOnePostById(Long postId) {
         this.postRepository.deleteById(postId);
     }
+
     public Post updateOnePost(Long postId, UpdatePostRequest updatePostRequest) {
         Post post = postRepository.findById(postId).orElse(null);
-        if (Objects.nonNull(post)){
+        if (Objects.nonNull(post)) {
             post.setContent(updatePostRequest.getContent());
             post.setTitle(updatePostRequest.getTitle());
             post.setViewCount(updatePostRequest.getViewCount());

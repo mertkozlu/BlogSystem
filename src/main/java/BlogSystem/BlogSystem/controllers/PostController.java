@@ -1,16 +1,11 @@
 package BlogSystem.BlogSystem.controllers;
 
-import org.springframework.web.bind.annotation.*;
 import BlogSystem.BlogSystem.dto.requests.AddPostRequest;
-import BlogSystem.BlogSystem.dto.requests.AddUserRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdatePostRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllPostResponse;
-import BlogSystem.BlogSystem.dto.responses.GetAllUserResponse;
 import BlogSystem.BlogSystem.entities.Post;
-import BlogSystem.BlogSystem.entities.User;
 import BlogSystem.BlogSystem.service.PostService;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("posts")

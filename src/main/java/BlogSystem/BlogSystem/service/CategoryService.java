@@ -1,19 +1,15 @@
 package BlogSystem.BlogSystem.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import BlogSystem.BlogSystem.dataAccess.CategoryRepository;
 import BlogSystem.BlogSystem.dto.GetAllCategoryDto;
-import BlogSystem.BlogSystem.dto.GetAllCommentDto;
-import BlogSystem.BlogSystem.dto.GetAllUsersDto;
 import BlogSystem.BlogSystem.dto.requests.AddCategoryRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdateCategoryRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllCategoryResponse;
-import BlogSystem.BlogSystem.dto.responses.GetAllCommentResponse;
 import BlogSystem.BlogSystem.entities.Category;
-import BlogSystem.BlogSystem.entities.Comment;
 import BlogSystem.BlogSystem.exception.BusinessException;
 import BlogSystem.BlogSystem.mapper.ModelMapperService;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -43,9 +39,9 @@ public class CategoryService {
         if (CollectionUtils.isEmpty(dtos)) {
             throw new BusinessException("Empty list");
         }
-            response.setGetAllCategoryDto(dtos);
-            response.setResultCode("1");
-            response.setResultDescription("Success");
+        response.setGetAllCategoryDto(dtos);
+        response.setResultCode("1");
+        response.setResultDescription("Success");
 
         return response;
     }

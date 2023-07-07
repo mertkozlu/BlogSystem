@@ -1,14 +1,11 @@
 package BlogSystem.BlogSystem.controllers;
 
-import org.springframework.web.bind.annotation.*;
 import BlogSystem.BlogSystem.dto.requests.AddCategoryRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdateCategoryRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllCategoryResponse;
-import BlogSystem.BlogSystem.dto.responses.GetAllUserResponse;
 import BlogSystem.BlogSystem.entities.Category;
 import BlogSystem.BlogSystem.service.CategoryService;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("categories")
@@ -16,8 +13,8 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    public CategoryController(CategoryService categoryService){
-        this.categoryService=categoryService;
+    public CategoryController(CategoryService categoryService) {
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/getAll")
@@ -36,7 +33,7 @@ public class CategoryController {
     }
 
     @PutMapping("{categoryId}")
-    public Category updateOneUser(@PathVariable  Long categoryId, @RequestBody UpdateCategoryRequest updateCategoryRequest){
+    public Category updateOneUser(@PathVariable Long categoryId, @RequestBody UpdateCategoryRequest updateCategoryRequest) {
         return categoryService.updateOneCategory(categoryId, updateCategoryRequest);
 
     }

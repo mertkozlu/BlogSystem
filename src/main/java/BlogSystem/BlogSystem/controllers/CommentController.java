@@ -1,14 +1,11 @@
 package BlogSystem.BlogSystem.controllers;
 
-import org.springframework.web.bind.annotation.*;
 import BlogSystem.BlogSystem.dto.requests.AddCommentRequest;
-import BlogSystem.BlogSystem.dto.requests.AddPostRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdateCommentRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllCommentResponse;
 import BlogSystem.BlogSystem.entities.Comment;
 import BlogSystem.BlogSystem.service.CommentService;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("comments")

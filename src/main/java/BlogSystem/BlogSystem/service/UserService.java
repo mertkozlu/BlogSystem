@@ -1,7 +1,5 @@
 package BlogSystem.BlogSystem.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import BlogSystem.BlogSystem.dataAccess.CommentRepository;
 import BlogSystem.BlogSystem.dataAccess.PostRepository;
 import BlogSystem.BlogSystem.dataAccess.UserRepository;
@@ -14,8 +12,12 @@ import BlogSystem.BlogSystem.entities.Post;
 import BlogSystem.BlogSystem.entities.User;
 import BlogSystem.BlogSystem.exception.BusinessException;
 import BlogSystem.BlogSystem.mapper.ModelMapperService;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service

@@ -1,13 +1,11 @@
 package BlogSystem.BlogSystem.controllers;
 
-import org.springframework.web.bind.annotation.*;
 import BlogSystem.BlogSystem.dto.requests.AddUserRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdateUserRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllUserResponse;
 import BlogSystem.BlogSystem.entities.User;
 import BlogSystem.BlogSystem.service.UserService;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("users")
@@ -35,7 +33,7 @@ public class UsersController {
     }
 
     @PutMapping("{userId}")
-    public User updateOneUser(@PathVariable  Long userId, @RequestBody UpdateUserRequest updateUserRequest){
+    public User updateOneUser(@PathVariable Long userId, @RequestBody UpdateUserRequest updateUserRequest) {
         return userService.updateOneUser(userId, updateUserRequest);
 
     }

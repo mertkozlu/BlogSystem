@@ -1,7 +1,5 @@
 package BlogSystem.BlogSystem.service;
 
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import BlogSystem.BlogSystem.dataAccess.CommentRepository;
 import BlogSystem.BlogSystem.dto.GetAllCommentDto;
 import BlogSystem.BlogSystem.dto.requests.AddCommentRequest;
@@ -10,6 +8,8 @@ import BlogSystem.BlogSystem.dto.responses.GetAllCommentResponse;
 import BlogSystem.BlogSystem.entities.Comment;
 import BlogSystem.BlogSystem.exception.BusinessException;
 import BlogSystem.BlogSystem.mapper.ModelMapperService;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Date;
 import java.util.List;
@@ -38,9 +38,9 @@ public class CommentService {
         if (CollectionUtils.isEmpty(dtos)) {
             throw new BusinessException("Empty list");
         }
-            response.setGetAllCommentDto(dtos);
-            response.setResultCode("1");
-            response.setResultDescription("Success");
+        response.setGetAllCommentDto(dtos);
+        response.setResultCode("1");
+        response.setResultDescription("Success");
 
         return response;
     }
