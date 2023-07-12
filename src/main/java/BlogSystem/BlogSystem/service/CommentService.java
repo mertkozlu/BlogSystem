@@ -58,7 +58,7 @@ public class CommentService {
     public Comment updateOneComment(Long commentId, UpdateCommentRequest updateCommentRequest) {
         Comment comment = commentRepository.findById(commentId).orElse(null);
         if (Objects.nonNull(comment)) {
-            comment.setComment(updateCommentRequest.getComments());
+            comment.setComment(updateCommentRequest.getComment());
             comment.setIsConfirmed(updateCommentRequest.getIsConfirmed());
 
             commentRepository.save(comment);
@@ -74,7 +74,7 @@ public class CommentService {
         getAllCommentDto.setUserId(comment.getUser().getUserId());
         getAllCommentDto.setPostId(comment.getPost().getPostId());
         getAllCommentDto.setCommentId(comment.getCommentId());
-        getAllCommentDto.setComments(comment.getComment());
+        getAllCommentDto.setComment(comment.getComment());
         getAllCommentDto.setCreationDate(new Date());
         getAllCommentDto.setIsConfirmed(comment.getIsConfirmed());
 

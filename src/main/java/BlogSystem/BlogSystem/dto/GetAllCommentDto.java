@@ -14,7 +14,7 @@ public class GetAllCommentDto {
 
     private Long commentId;
 
-    private String comments;
+    private String comment;
 
     private Date creationDate;
 

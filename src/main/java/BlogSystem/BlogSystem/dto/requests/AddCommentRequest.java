@@ -9,7 +9,7 @@ public class AddCommentRequest {
 
     private Long userId;
 
-    private String comments;
+    private String comment;
 
     private Boolean isConfirmed;
 }

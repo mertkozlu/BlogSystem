@@ -1,4 +1,4 @@
-package patikaOdev.BlogSystem;
+package BlogSystem.BlogSystem;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package patikaOdev.BlogSystem;
+package BlogSystem.BlogSystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
