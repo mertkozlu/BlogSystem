@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class AddPostRequest {
+    private Long categoryId;
 
     private Long userId;
 

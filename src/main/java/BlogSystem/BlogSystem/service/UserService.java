@@ -28,7 +28,7 @@ public class UserService {
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
 
-    public UserService(UserRepository userRepository,ModelMapperService modelMapperService,
+    public UserService(UserRepository userRepository, ModelMapperService modelMapperService,
                        CommentRepository commentRepository,
                        PostRepository postRepository) {
         this.userRepository = userRepository;
@@ -54,7 +54,6 @@ public class UserService {
         response.setResultDescription("Success");
 
         return response;
-
 
     }
 
@@ -87,9 +86,6 @@ public class UserService {
 
     }
 
-    public User getByUserId(Long userId) {
-        return userRepository.findById(userId).orElse(null);
-    }
 
     private GetAllUsersDto convertUserToGetAllUsersDto(User user) {
         GetAllUsersDto getAllUsersDto = new GetAllUsersDto();

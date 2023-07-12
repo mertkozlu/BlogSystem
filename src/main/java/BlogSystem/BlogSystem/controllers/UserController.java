@@ -38,8 +38,5 @@ public class UserController {
 
     }
 
-    public User getByUserId(Long userId) {
-        return userService.getByUserId(userId);
-    }
 
 }

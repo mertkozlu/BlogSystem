@@ -1,19 +1,19 @@
 package BlogSystem.BlogSystem.service;
 
 import BlogSystem.BlogSystem.dataAccess.PostRepository;
-import BlogSystem.BlogSystem.dataAccess.UserRepository;
 import BlogSystem.BlogSystem.dto.GetAllPostDto;
 import BlogSystem.BlogSystem.dto.requests.AddPostRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdatePostRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllPostResponse;
 import BlogSystem.BlogSystem.entities.Post;
-import BlogSystem.BlogSystem.entities.User;
 import BlogSystem.BlogSystem.exception.BusinessException;
 import BlogSystem.BlogSystem.mapper.ModelMapperService;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,13 +21,11 @@ public class PostService {
 
     private final PostRepository postRepository;
     private final ModelMapperService modelMapperService;
-    private final UserService userService;
 
-    public PostService(PostRepository postRepository, ModelMapperService modelMapperService,
-                       UserService userService) {
+    public PostService(PostRepository postRepository,
+                       ModelMapperService modelMapperService) {
         this.postRepository = postRepository;
         this.modelMapperService = modelMapperService;
-        this.userService = userService;
     }
 
     public GetAllPostResponse getAllPosts() {
@@ -48,15 +46,8 @@ public class PostService {
     }
 
     public Post saveOnePost(AddPostRequest newPost) {
-        User user =  userService.getByUserId(newPost.getUserId());
-        if (user == null)
-            return null;
-        Post post = new Post();
-        post.setTitle(newPost.getTitle());
-        post.setContent(newPost.getContent());
-        post.setViewCount(newPost.getViewCount());
-        post.setIsPublished(newPost.getIsPublished());
-//        Post post = this.modelMapperService.forRequest().map(newPost, Post.class);
+
+        Post post = this.modelMapperService.forRequest().map(newPost, Post.class);
         return postRepository.save(post);
     }
 
@@ -80,8 +71,9 @@ public class PostService {
     }
 
     private GetAllPostDto convertPostToGetAllPostsDto(Post post) {
-        GetAllPostDto getAllPostsDto = new GetAllPostDto(post);
+        GetAllPostDto getAllPostsDto = new GetAllPostDto();
         getAllPostsDto.setUserId(post.getUser().getUserId());
+        getAllPostsDto.setCategoryId(post.getCategory().getCategoryId());
         getAllPostsDto.setPostId(post.getPostId());
         getAllPostsDto.setTitle(post.getTitle());
         getAllPostsDto.setContent(post.getContent());

@@ -7,7 +7,9 @@ public class UpdatePostRequest {
 
     private Long userId;
 
-    private Long CommentId;
+    private Long commentId;
+
+    private Long categoryId;
 
     private String title;
 

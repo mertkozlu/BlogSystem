@@ -12,6 +12,8 @@ public class GetAllPostDto {
 
     private Long userId;
 
+    private Long categoryId;
+
     private String title;
 
     private String content;
@@ -22,18 +24,6 @@ public class GetAllPostDto {
 
     private Boolean isPublished;
 
-    public GetAllPostDto(Post entity) {
-        if (entity != null) {
-            this.postId = entity.getPostId();
-            User user = entity.getUser();
-            if (user != null) {
-                this.userId = user.getUserId();
-            }
-            this.title = entity.getTitle();
-            this.content = entity.getContent();
-            this.viewCount = entity.getViewCount();
-            this.creationDate = entity.getCreationDate();
-            this.isPublished = entity.getIsPublished();
-        }
-    }
+
+
 }
