@@ -7,6 +7,8 @@ import BlogSystem.BlogSystem.entities.Post;
 import BlogSystem.BlogSystem.service.PostService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("posts")
 public class PostController {

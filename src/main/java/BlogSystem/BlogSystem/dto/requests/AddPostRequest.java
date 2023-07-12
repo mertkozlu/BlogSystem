@@ -14,4 +14,5 @@ public class AddPostRequest {
     private Long viewCount;
 
     private Boolean isPublished;
+
 }

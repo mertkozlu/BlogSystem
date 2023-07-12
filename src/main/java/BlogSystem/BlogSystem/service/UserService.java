@@ -24,18 +24,14 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final CommentService commentService;
-    private final PostService postService;
     private final ModelMapperService modelMapperService;
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;
 
-    public UserService(UserRepository userRepository, CommentService commentService, PostService postService, ModelMapperService modelMapperService,
+    public UserService(UserRepository userRepository,ModelMapperService modelMapperService,
                        CommentRepository commentRepository,
                        PostRepository postRepository) {
         this.userRepository = userRepository;
-        this.commentService = commentService;
-        this.postService = postService;
         this.modelMapperService = modelMapperService;
         this.commentRepository = commentRepository;
         this.postRepository = postRepository;
@@ -89,6 +85,10 @@ public class UserService {
 
         throw new BusinessException("User could not found");
 
+    }
+
+    public User getByUserId(Long userId) {
+        return userRepository.findById(userId).orElse(null);
     }
 
     private GetAllUsersDto convertUserToGetAllUsersDto(User user) {
