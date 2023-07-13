@@ -65,9 +65,13 @@ public class UserService {
     }
 
     public void deleteOneUserById(Long userId) {
-        Comment comment = commentRepository.findById(userId).orElse(null);
-        Post post = postRepository.findById(userId).orElse(null);
-        if (Objects.nonNull(comment) || Objects.nonNull(post)) {
+        Integer userCount = userRepository.countUser();
+        if (userCount <= 1) {
+            throw new BusinessException("User cannot be deleted there most be add list one user.");
+        }
+        List<Comment> comments = commentRepository.findByUser_UserId(userId);
+        Post post = postRepository.findByUser_UserId(userId);
+        if (!CollectionUtils.isEmpty(comments) || Objects.nonNull(post)) {
             throw new BusinessException("User cannot be deleted while the user has posts and comments.");
         }
         this.userRepository.deleteById(userId);

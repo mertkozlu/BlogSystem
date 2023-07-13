@@ -52,6 +52,10 @@ public class PostService {
     }
 
     public void deleteOnePostById(Long postId) {
+        Post post = postRepository.findById(postId).orElse(null);
+        if (!CollectionUtils.isEmpty(post.getComments())) {
+            throw new BusinessException("Post cannot be deleted while the post has comments.");
+        }
         this.postRepository.deleteById(postId);
     }
 

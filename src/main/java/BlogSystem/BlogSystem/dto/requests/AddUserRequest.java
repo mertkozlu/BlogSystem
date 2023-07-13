@@ -9,5 +9,5 @@ public class AddUserRequest {
 
     private String email;
 
-    private boolean isActive;
+    private Boolean isActive;
 }

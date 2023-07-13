@@ -7,4 +7,5 @@ import BlogSystem.BlogSystem.entities.Post;
 import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
+    Post findByUser_UserId(Long userId);
 }
