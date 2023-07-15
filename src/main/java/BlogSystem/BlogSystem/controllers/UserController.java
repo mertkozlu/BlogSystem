@@ -27,14 +27,14 @@ public class UserController {
         return userService.saveOneUser(newUser);
     }
 
-    @DeleteMapping("/{userId}")
+    @DeleteMapping("/delete/{userId}")
     public void deleteOneUser(@PathVariable Long userId) {
         this.userService.deleteOneUserById(userId);
     }
 
-    @PutMapping("{userId}")
-    public User updateOneUser(@PathVariable Long userId, @RequestBody UpdateUserRequest updateUserRequest) {
-        return userService.updateOneUser(userId, updateUserRequest);
+    @PutMapping("/update")
+    public void updateOneUser(@RequestBody UpdateUserRequest updateUserRequest) {
+        this.userService.updateOneUser(updateUserRequest);
 
     }
 

@@ -8,6 +8,7 @@ import BlogSystem.BlogSystem.service.CategoryService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("categories")
 public class CategoryController {
 
@@ -27,14 +28,14 @@ public class CategoryController {
         return categoryService.saveOneCategory(newCategory);
     }
 
-    @DeleteMapping("/{categoryId}")
+    @DeleteMapping("/delete/{categoryId}")
     public void deleteOneCategory(@PathVariable Long categoryId) {
         this.categoryService.deleteOneCategoryById(categoryId);
     }
 
-    @PutMapping("{categoryId}")
-    public Category updateOneUser(@PathVariable Long categoryId, @RequestBody UpdateCategoryRequest updateCategoryRequest) {
-        return categoryService.updateOneCategory(categoryId, updateCategoryRequest);
+    @PutMapping("/update")
+    public void updateOneUser(@RequestBody UpdateCategoryRequest updateCategoryRequest) {
+        this.categoryService.updateOneCategory(updateCategoryRequest);
 
     }
 }

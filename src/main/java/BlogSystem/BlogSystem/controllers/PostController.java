@@ -8,6 +8,7 @@ import BlogSystem.BlogSystem.service.PostService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("posts")
 public class PostController {
 
@@ -27,14 +28,14 @@ public class PostController {
         return postService.saveOnePost(newPost);
     }
 
-    @DeleteMapping("/{postId}")
+    @DeleteMapping("/delete/{postId}")
     public void deleteOnePost(@PathVariable Long postId) {
         this.postService.deleteOnePostById(postId);
     }
 
-    @PutMapping("{postId}")
-    public Post updateOnePost(@PathVariable Long postId, @RequestBody UpdatePostRequest updatePostRequest) {
-        return postService.updateOnePost(postId, updatePostRequest);
+    @PutMapping("/update")
+    public void updateOnePost(@RequestBody UpdatePostRequest updatePostRequest) {
+        this.postService.updateOnePost(updatePostRequest);
 
     }
 }

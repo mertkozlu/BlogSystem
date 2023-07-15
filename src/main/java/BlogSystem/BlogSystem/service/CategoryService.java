@@ -48,6 +48,8 @@ public class CategoryService {
 
     public Category saveOneCategory(AddCategoryRequest newCategory) {
         Category category = modelMapperService.forRequest().map(newCategory, Category.class);
+        category.setCreationDate(new Date());
+
         return categoryRepository.save(category);
     }
 
@@ -55,16 +57,11 @@ public class CategoryService {
         this.categoryRepository.deleteById(categoryId);
     }
 
-    public Category updateOneCategory(Long categoryId, UpdateCategoryRequest updateCategoryRequest) {
-        Category category = categoryRepository.findById(categoryId).orElse(null);
-        if (Objects.nonNull(category)) {
-            category.setCategoryName(updateCategoryRequest.getCategoryName());
-
-            categoryRepository.save(category);
-            return category;
-        }
-
-        throw new BusinessException("Category could not found");
+    public void updateOneCategory(UpdateCategoryRequest updateCategoryRequest) {
+        Category category = categoryRepository.findById(updateCategoryRequest.getCategoryId()).orElseThrow(() -> new BusinessException("Category can not found"));
+        Category categoryToUpdate = this.modelMapperService.forRequest().map(updateCategoryRequest, Category.class);
+        categoryToUpdate.setCreationDate(category.getCreationDate());
+        this.categoryRepository.save(categoryToUpdate);
 
     }
 
@@ -72,7 +69,7 @@ public class CategoryService {
         GetAllCategoryDto getAllCategoryDto = new GetAllCategoryDto();
         getAllCategoryDto.setCategoryId(category.getCategoryId());
         getAllCategoryDto.setCategoryName(category.getCategoryName());
-        getAllCategoryDto.setCreationDate(new Date());
+        getAllCategoryDto.setCreationDate(category.getCreationDate());
 
         return getAllCategoryDto;
     }

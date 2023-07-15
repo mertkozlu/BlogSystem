@@ -43,4 +43,16 @@ public class Post {
     private Date creationDate;
 
     private Boolean isPublished;
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "postId=" + postId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", viewCount=" + viewCount +
+                ", creationDate=" + creationDate +
+                ", isPublished=" + isPublished +
+                '}';
+    }
 }

@@ -8,6 +8,7 @@ import BlogSystem.BlogSystem.service.CommentService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("comments")
 public class CommentController {
 
@@ -27,14 +28,14 @@ public class CommentController {
         return commentService.saveOneComment(newComment);
     }
 
-    @DeleteMapping("/{commentId}")
+    @DeleteMapping("/delete/{commentId}")
     public void deleteOneComment(@PathVariable Long commentId) {
         this.commentService.deleteOneCommentById(commentId);
     }
 
-    @PutMapping("{commentId}")
-    public Comment updateOneUser(@PathVariable Long commentId, @RequestBody UpdateCommentRequest updateCommentRequest) {
-        return commentService.updateOneComment(commentId, updateCommentRequest);
+    @PutMapping("/update")
+    public void updateOneUser(@RequestBody UpdateCommentRequest updateCommentRequest) {
+        this.commentService.updateOneComment(updateCommentRequest);
     }
 
 }

@@ -48,6 +48,8 @@ public class CommentService {
 
     public Comment saveOneComment(AddCommentRequest newComment) {
         Comment comment = this.modelMapperService.forRequest().map(newComment, Comment.class);
+        comment.setCreationDate(new Date());
+
         return commentRepository.save(comment);
     }
 
@@ -55,18 +57,11 @@ public class CommentService {
         this.commentRepository.deleteById(commentId);
     }
 
-    public Comment updateOneComment(Long commentId, UpdateCommentRequest updateCommentRequest) {
-        Comment comment = commentRepository.findById(commentId).orElse(null);
-        if (Objects.nonNull(comment)) {
-            comment.setComment(updateCommentRequest.getComment());
-            comment.setIsConfirmed(updateCommentRequest.getIsConfirmed());
-
-            commentRepository.save(comment);
-            return comment;
-        }
-
-        throw new BusinessException("Comment could not found");
-
+    public void updateOneComment(UpdateCommentRequest updateCommentRequest) {
+        Comment comment = commentRepository.findById(updateCommentRequest.getCommentId()).orElseThrow(() -> new BusinessException("Comment can not found"));
+        Comment commentToUpdate = this.modelMapperService.forRequest().map(updateCommentRequest, Comment.class);
+        commentToUpdate.setCreationDate(comment.getCreationDate());
+        this.commentRepository.save(commentToUpdate);
     }
 
     private GetAllCommentDto convertCommentToGetAllCommentDto(Comment comment) {
@@ -75,7 +70,7 @@ public class CommentService {
         getAllCommentDto.setPostId(comment.getPost().getPostId());
         getAllCommentDto.setCommentId(comment.getCommentId());
         getAllCommentDto.setComment(comment.getComment());
-        getAllCommentDto.setCreationDate(new Date());
+        getAllCommentDto.setCreationDate(comment.getCreationDate());
         getAllCommentDto.setIsConfirmed(comment.getIsConfirmed());
 
         return getAllCommentDto;

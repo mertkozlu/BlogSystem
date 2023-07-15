@@ -35,4 +35,14 @@ public class Comment {
     private Date creationDate;
 
     private Boolean isConfirmed;
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentId=" + commentId +
+                ", comment='" + comment + '\'' +
+                ", creationDate=" + creationDate +
+                ", isConfirmed=" + isConfirmed +
+                '}';
+    }
 }

@@ -57,9 +57,9 @@ public class UserService {
 
     }
 
-
     public User saveOneUser(AddUserRequest newUser) {
         User user = this.modelMapperService.forRequest().map(newUser, User.class);
+        user.setCreationDate(new Date());
 
         return userRepository.save(user);
     }
@@ -77,16 +77,11 @@ public class UserService {
         this.userRepository.deleteById(userId);
     }
 
-    public User updateOneUser(Long userId, UpdateUserRequest updateUserRequest) {
-        User user = userRepository.findById(userId).orElse(null);
-        if (Objects.nonNull(user)) {
-            user.setUserName(updateUserRequest.getUserName());
-            user.setEmail(updateUserRequest.getEmail());
-            userRepository.save(user);
-            return user;
-        }
-
-        throw new BusinessException("User could not found");
+    public void updateOneUser(UpdateUserRequest updateUserRequest) {
+        User user = userRepository.findById(updateUserRequest.getUserId()).orElseThrow(() -> new BusinessException("User can not found"));
+        User userToUpdate = this.modelMapperService.forRequest().map(updateUserRequest, User.class);
+        userToUpdate.setCreationDate(user.getCreationDate());
+        this.userRepository.save(userToUpdate);
 
     }
 
@@ -96,7 +91,7 @@ public class UserService {
         getAllUsersDto.setUserId(user.getUserId());
         getAllUsersDto.setUserName(user.getUserName());
         getAllUsersDto.setEmail(user.getEmail());
-        getAllUsersDto.setCreationDate(new Date());
+        getAllUsersDto.setCreationDate(user.getCreationDate());
 
         return getAllUsersDto;
 

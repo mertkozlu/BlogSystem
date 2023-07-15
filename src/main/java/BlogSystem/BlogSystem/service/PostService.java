@@ -2,6 +2,7 @@ package BlogSystem.BlogSystem.service;
 
 import BlogSystem.BlogSystem.dataAccess.PostRepository;
 import BlogSystem.BlogSystem.dto.GetAllPostDto;
+import BlogSystem.BlogSystem.dto.GetPostByIdDto;
 import BlogSystem.BlogSystem.dto.requests.AddPostRequest;
 import BlogSystem.BlogSystem.dto.requests.UpdatePostRequest;
 import BlogSystem.BlogSystem.dto.responses.GetAllPostResponse;
@@ -46,8 +47,9 @@ public class PostService {
     }
 
     public Post saveOnePost(AddPostRequest newPost) {
-
         Post post = this.modelMapperService.forRequest().map(newPost, Post.class);
+        post.setCreationDate(new Date());
+
         return postRepository.save(post);
     }
 
@@ -59,18 +61,18 @@ public class PostService {
         this.postRepository.deleteById(postId);
     }
 
-    public Post updateOnePost(Long postId, UpdatePostRequest updatePostRequest) {
-        Post post = postRepository.findById(postId).orElse(null);
-        if (Objects.nonNull(post)) {
-            post.setContent(updatePostRequest.getContent());
-            post.setTitle(updatePostRequest.getTitle());
-            post.setViewCount(updatePostRequest.getViewCount());
-            post.setIsPublished(updatePostRequest.getIsPublished());
-            postRepository.save(post);
-            return post;
-        }
+    public void updateOnePost(UpdatePostRequest updatePostRequest) {
+        Post post = postRepository.findById(updatePostRequest.getPostId()).orElseThrow(() -> new BusinessException("Post can not found"));
+        Post postToUpdate = this.modelMapperService.forRequest().map(updatePostRequest, Post.class);
+        postToUpdate.setCreationDate(post.getCreationDate());
+        this.postRepository.save(postToUpdate);
 
-        throw new BusinessException("Post could not found");
+    }
+
+    public GetPostByIdDto getPostByIdDto(Long postId) {
+        Post post = this.postRepository.findById(postId).orElseThrow(() -> new BusinessException("Post not found" + postId));
+        GetPostByIdDto getPostByIdDto = convertPostGetPostByIdDto(post);
+        return getPostByIdDto;
 
     }
 
@@ -83,8 +85,21 @@ public class PostService {
         getAllPostsDto.setContent(post.getContent());
         getAllPostsDto.setViewCount(post.getViewCount());
         getAllPostsDto.setIsPublished(post.getIsPublished());
-        getAllPostsDto.setCreationDate(new Date());
+        getAllPostsDto.setCreationDate(post.getCreationDate());
         return getAllPostsDto;
+
+    }
+
+    private GetPostByIdDto convertPostGetPostByIdDto(Post post) {
+        GetPostByIdDto dto = new GetPostByIdDto();
+        dto.setUserId(post.getUser().getUserId());
+        dto.setCategoryId(post.getCategory().getCategoryId());
+        dto.setTitle(post.getTitle());
+        dto.setContent(post.getContent());
+        dto.setViewCount(post.getViewCount());
+        dto.setIsPublished(post.getIsPublished());
+
+        return dto;
 
     }
 }

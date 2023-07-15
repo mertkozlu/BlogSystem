@@ -4,10 +4,11 @@ import lombok.Data;
 
 @Data
 public class UpdateUserRequest {
+    private Long userId;
 
     private String userName;
 
     private String email;
 
-    private boolean isActive = true;
+    private Boolean isActive;
 }
